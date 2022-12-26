@@ -23,10 +23,10 @@ document.querySelector('#scissor').addEventListener('click', () => {
 
 function play(choice){
     if(state.playGame === false){
-        document.querySelector('#playGround').removeChild();
+        document.querySelector('#result').remove();
     }
     else{
-        let playGround = document.querySelector('#result');
+        let playGround = document.querySelector('#playGround');
         let divResult = document.createElement('div');
         divResult.setAttribute('class','result');
         divResult.setAttribute('id', 'result');
@@ -66,7 +66,14 @@ function play(choice){
         divPlayer.append(h2Player, imgPlayer);
         divResult.append(divPlayer);
 
-        playGround.replaceWith(divResult);
+        //playGround.append(divResult);
+
+        if(playGround.childNodes.length > 1){
+            document.querySelector('#result').replaceWith(divResult);
+        }
+        else{
+            playGround.append(divResult);
+        }
 
     }
 }
