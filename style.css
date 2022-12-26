@@ -68,3 +68,13 @@ header{
     padding: 1vw;
     text-align: center;
 }
+
+
+.score-board{
+    padding: 2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -2vw;
+}
