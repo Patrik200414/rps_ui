@@ -49,3 +49,8 @@ header{
     opacity: 0.6;
     transition: ease-in 0.3s;
 }
+
+.play-ground .player img{
+    width: 250px;
+    height: 250px;
+}
