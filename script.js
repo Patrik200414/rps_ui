@@ -2,26 +2,34 @@ let state = {
     playGame: false,
     totalScoreP: 0,
     totalScoreC: 0,
-    choices: ['rock','paper','scissors']
+    clickCount: 0,
+    choices: ['rock', 'paper', 'scissor']
 }
 
 
 
 document.querySelector('#rock').addEventListener('click', () => {
+    state.clickCount++;
     state.playGame = true;
-    play('rock');
+    let choice = 'rock';
+    playPerson(choice);
+    console.log(computerChoice());
 });
 document.querySelector('#paper').addEventListener('click', () => {
+    state.clickCount++;
     state.playGame = true;
-    play('paper');
+    let choice = 'paper';
+    playPerson(choice);
 });
 document.querySelector('#scissor').addEventListener('click', () => {
+    state.clickCount++;
     state.playGame = true;
-    play('scissor');
+    let choice = 'scissor';
+    playPerson(choice);
 })
 
 
-function play(choice){
+function playPerson(choice){
     if(state.playGame === false){
         document.querySelector('#result').remove();
     }
@@ -76,5 +84,10 @@ function play(choice){
         }
 
     }
+}
+
+
+function computerChoice(){
+    return state.choices[Math.floor(Math.random() * (3 - 0) ) + 0];
 }
 
