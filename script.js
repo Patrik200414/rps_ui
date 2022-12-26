@@ -5,11 +5,13 @@ let state = {
     clickCount: 0,
     choices: ['rock', 'paper', 'scissor']
 }
-
+    var playerRoundS = 0;
+    var computerRoundS = 0;
 
 
 document.querySelector('#rock').addEventListener('click', () => {
     state.clickCount++;
+    
     state.playGame = true;
     let choice = 'rock';
     let choiceC = computerChoice();
@@ -49,13 +51,13 @@ function playPerson(choice, choiceC){
         let h2Player = document.createElement('h2');
         switch(choice.toLowerCase()){
             case 'rock':
-                h2Player.textContent = 'Rock';
+                h2Player.textContent = 'You: Rock';
                 break;
             case 'paper': 
-                h2Player.textContent = 'Paper';
+                h2Player.textContent = 'You: Paper';
                 break;
             case 'scissor':
-                h2Player.textContent = 'Scissors';
+                h2Player.textContent = 'You: Scissors';
                 break;
         }
 
@@ -83,13 +85,13 @@ function playPerson(choice, choiceC){
         let h2Computer = document.createElement('h2');
         switch(choiceC.toLowerCase()){
             case 'rock':
-                h2Computer.textContent = 'Rock';
+                h2Computer.textContent = 'Computer: Rock';
                 break;
             case 'paper': 
-                h2Computer.textContent = 'Paper';
+                h2Computer.textContent = 'Computer: Paper';
                 break;
             case 'scissor':
-                h2Computer.textContent = 'Scissors';
+                h2Computer.textContent = 'Computer: Scissors';
                 break;
         }
 
@@ -117,6 +119,7 @@ function playPerson(choice, choiceC){
 
         divResult.append(divPlayer, divComputer);
 
+
         //playGround.append(divResult);
 
         if(playGround.childNodes.length > 1){
@@ -126,11 +129,42 @@ function playPerson(choice, choiceC){
             playGround.append(divResult);
         }
 
-        
+
+        scoreBoard(choice,choiceC);
+
+
 
     }
 }
 
+
+
+function scoreBoard(choice,choiceC){
+
+    if(choice === 'rock' && choiceC === 'scissor'){
+        playerRoundS++;
+        
+    }
+    else if(choice === 'paper' && choiceC === 'rock'){
+        playerRoundS++;
+        
+    }
+    else if(choice === 'scissor' && choiceC === 'paper'){
+        playerRoundS++;
+        
+    }
+    else if(choice === 'scissor' && choiceC === 'rock'){
+        computerRoundS++;
+        
+    }
+    else if(choice === 'rock' && choiceC === 'paper'){
+        computerRoundS++;
+        
+    }
+    else if(choice === 'paper' && choiceC === 'scissor'){
+        computerRoundS++;
+    }
+}
 
 function computerChoice(){
     return state.choices[Math.floor(Math.random() * (3 - 0) ) + 0];
