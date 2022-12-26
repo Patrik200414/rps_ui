@@ -50,7 +50,21 @@ header{
     transition: ease-in 0.3s;
 }
 
-.play-ground .player img{
+.player-img,.computer-img{
     width: 250px;
     height: 250px;
+}
+.play-ground{
+    margin: 3vw;
+}
+.result{
+    padding: 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.player h2,.computer h2{
+    padding: 1vw;
+    text-align: center;
 }
