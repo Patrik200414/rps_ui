@@ -2,11 +2,11 @@ let state = {
     playGame: false,
     totalScoreP: 0,
     totalScoreC: 0,
+    playerRoundS: 0,
+    computerRoundS: 0,
     clickCount: 0,
     choices: ['rock', 'paper', 'scissor']
 }
-    var playerRoundS = 0;
-    var computerRoundS = 0;
 
 
 document.querySelector('#rock').addEventListener('click', () => {
@@ -131,6 +131,7 @@ function playPerson(choice, choiceC){
 
 
         scoreBoard(choice,choiceC);
+        console.log(state.playerRoundS, state.computerRoundS)
 
 
 
@@ -142,27 +143,27 @@ function playPerson(choice, choiceC){
 function scoreBoard(choice,choiceC){
 
     if(choice === 'rock' && choiceC === 'scissor'){
-        playerRoundS++;
+        state.playerRoundS++;
         
     }
     else if(choice === 'paper' && choiceC === 'rock'){
-        playerRoundS++;
+        state.playerRoundS++;
         
     }
     else if(choice === 'scissor' && choiceC === 'paper'){
-        playerRoundS++;
+        state.playerRoundS++;
         
     }
     else if(choice === 'scissor' && choiceC === 'rock'){
-        computerRoundS++;
+        state.computerRoundS++;
         
     }
     else if(choice === 'rock' && choiceC === 'paper'){
-        computerRoundS++;
+        state.computerRoundS++;
         
     }
     else if(choice === 'paper' && choiceC === 'scissor'){
-        computerRoundS++;
+        state.computerRoundS++;
     }
 }
 
