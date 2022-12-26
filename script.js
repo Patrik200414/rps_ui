@@ -172,7 +172,7 @@ function playPerson(choice, choiceC){
         }
 
 
-        if(state.clickCount === 5){
+        if(state.clickCount % 5 === 0){
             endRound();
         }
 
@@ -223,7 +223,7 @@ function endRound(){
     buttonreplay.setAttribute('id', 'rePlay');
     buttonreplay.textContent = 'Play again!';
 
-    let pText = document.createElement('p');
+    let pText = document.createElement('h2');
     pText.textContent = 'Do you want to play another round?';
 
     let declineButton = document.createElement('button');
@@ -231,7 +231,7 @@ function endRound(){
     declineButton.setAttribute('id', 'decline');
     declineButton.textContent = 'No, thenk you!';
 
-    divReply.append(buttonreplay, declineButton);
+    divReply.append(pText, buttonreplay, declineButton);
 
     document.querySelector('#playGround').replaceWith(divReply);
 
