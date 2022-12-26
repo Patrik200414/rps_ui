@@ -12,24 +12,26 @@ document.querySelector('#rock').addEventListener('click', () => {
     state.clickCount++;
     state.playGame = true;
     let choice = 'rock';
-    playPerson(choice);
-    console.log(computerChoice());
+    let choiceC = computerChoice();
+    playPerson(choice, choiceC);
 });
 document.querySelector('#paper').addEventListener('click', () => {
     state.clickCount++;
     state.playGame = true;
     let choice = 'paper';
-    playPerson(choice);
+    let choiceC = computerChoice();
+    playPerson(choice, choiceC);
 });
 document.querySelector('#scissor').addEventListener('click', () => {
     state.clickCount++;
     state.playGame = true;
     let choice = 'scissor';
-    playPerson(choice);
+    let choiceC = computerChoice();
+    playPerson(choice, choiceC);
 })
 
 
-function playPerson(choice){
+function playPerson(choice, choiceC){
     if(state.playGame === false){
         document.querySelector('#result').remove();
     }
@@ -58,6 +60,7 @@ function playPerson(choice){
         }
 
         let imgPlayer = document.createElement('img');
+        imgPlayer.setAttribute('class', 'player-img');
         
         switch(choice.toLowerCase()){
             case 'rock':
@@ -72,7 +75,47 @@ function playPerson(choice){
         }
 
         divPlayer.append(h2Player, imgPlayer);
-        divResult.append(divPlayer);
+        //computer choice
+        let divComputer = document.createElement('div');
+        divPlayer.setAttribute('class','computer');
+        divPlayer.setAttribute('id', 'computer');
+
+        let h2Computer = document.createElement('h2');
+        switch(choiceC.toLowerCase()){
+            case 'rock':
+                h2Computer.textContent = 'Rock';
+                break;
+            case 'paper': 
+                h2Computer.textContent = 'Paper';
+                break;
+            case 'scissor':
+                h2Computer.textContent = 'Scissors';
+                break;
+        }
+
+        let imgComputer = document.createElement('img');
+        imgComputer.setAttribute('class', 'computer-img');
+        
+        switch(choiceC.toLowerCase()){
+            case 'rock':
+                imgComputer.setAttribute('src', 'https://thumbs.dreamstime.com/b/cartoon-rock-pebbles-digital-illustration-147192308.jpg')
+                break;
+            case 'paper': 
+                imgComputer.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVqx-rJKSD_PpQMUv10YgkoF-akjUeo7fBlg&usqp=CAU')
+                break;
+            case 'scissor':
+                imgComputer.setAttribute('src', 'https://img.freepik.com/premium-vector/vector-doodle-hand-drawn-illustration-cartoon-scissors-isolated-white_364586-724.jpg?w=2000')
+                break;
+        }
+
+        divComputer.append(h2Computer, imgComputer);
+
+
+
+
+
+
+        divResult.append(divPlayer, divComputer);
 
         //playGround.append(divResult);
 
@@ -82,6 +125,8 @@ function playPerson(choice){
         else{
             playGround.append(divResult);
         }
+
+        
 
     }
 }
