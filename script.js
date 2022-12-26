@@ -77,8 +77,8 @@ function playPerson(choice, choiceC){
         divPlayer.append(h2Player, imgPlayer);
         //computer choice
         let divComputer = document.createElement('div');
-        divPlayer.setAttribute('class','computer');
-        divPlayer.setAttribute('id', 'computer');
+        divComputer.setAttribute('class','computer');
+        divComputer.setAttribute('id', 'computer');
 
         let h2Computer = document.createElement('h2');
         switch(choiceC.toLowerCase()){
