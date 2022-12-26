@@ -131,7 +131,45 @@ function playPerson(choice, choiceC){
 
 
         scoreBoard(choice,choiceC);
-        console.log(state.playerRoundS, state.computerRoundS)
+        
+
+       
+
+
+        let divScoreBoard = document.createElement('div');
+        divScoreBoard.setAttribute('class','score-board');
+        divScoreBoard.setAttribute('id', 'scoreBoard');
+
+        let divPlayerScoreBoard = document.createElement('div');
+        divPlayerScoreBoard.setAttribute('class', 'player-score');
+
+        let h3PlayerScore = document.createElement('h3');
+        h3PlayerScore.textContent = `Your score:\n${state.playerRoundS}`;
+        divPlayerScoreBoard.append(h3PlayerScore);
+
+
+
+        let divComputerScore = document.createElement('div');
+        divComputerScore.setAttribute('class', 'computer-score');
+
+        let h3ComputerScore = document.createElement('h3');
+        h3ComputerScore.textContent = `Your score:\n${state.computerRoundS}`;
+        divComputerScore.append(h3ComputerScore);
+
+
+
+
+
+        divScoreBoard.append(divPlayerScoreBoard, divComputerScore);
+
+
+
+        if(document.querySelector('article').childNodes.length <= 9){
+            document.querySelector('article').appendChild(divScoreBoard);
+        }
+        else{
+            document.querySelector('#scoreBoard').replaceWith(divScoreBoard);
+        }
 
 
 
