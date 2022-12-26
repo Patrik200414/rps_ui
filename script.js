@@ -7,10 +7,18 @@ let state = {
 
 
 
-document.querySelector('#rock').addEventListener('click', (event) => {
+document.querySelector('#rock').addEventListener('click', () => {
     state.playGame = true;
     play('rock');
-}) 
+});
+document.querySelector('#paper').addEventListener('click', () => {
+    state.playGame = true;
+    play('paper');
+});
+document.querySelector('#scissor').addEventListener('click', () => {
+    state.playGame = true;
+    play('scissor');
+})
 
 
 function play(choice){
