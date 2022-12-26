@@ -78,3 +78,50 @@ header{
     align-items: center;
     margin-top: -2vw;
 }
+
+.choice{
+    height: 25vh;
+    margin-top: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 2vw;
+    grid-gap: 2vw 0;
+}
+
+.choice h2{
+    grid-row-start: 1;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.re-play{
+    grid-row-start: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.decline{
+    grid-row-start: 2;
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
+
+.re-play,.decline{
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+}
+.re-play{
+    background-color: rgb(94, 94, 211);
+}
+.decline{
+    background-color: rgb(211, 201, 201);
+}
+.re-play:hover{
+    opacity: 0.6;
+    transition: ease-in 0.3s;
+}
+.decline:hover{
+    opacity: 0.6;
+    transition: ease-in 0.3s;
+}
