@@ -35,7 +35,7 @@ document.querySelector('#scissor').addEventListener('click', () => {
 
 function playPerson(choice, choiceC){
     if(state.playGame === false){
-        document.querySelector('#result').remove();
+        document.querySelector('article').removeChild();
     }
     else{
         let playGround = document.querySelector('#playGround');
@@ -172,6 +172,9 @@ function playPerson(choice, choiceC){
         }
 
 
+        if(state.clickCount === 5){
+            endRound();
+        }
 
     }
 }
@@ -204,6 +207,40 @@ function scoreBoard(choice,choiceC){
         state.computerRoundS++;
     }
 }
+
+
+
+function endRound(){
+    document.querySelector('#playGround').innerHTML = '';
+    document.querySelector('#scoreBoard').innerHTML = '';
+
+    let divReply = document.createElement('div');
+    divReply.setAttribute('class','choice');
+    divReply.setAttribute('id', 'choice');
+
+    let buttonreplay = document.createElement('button');
+    buttonreplay.setAttribute('class','re-play');
+    buttonreplay.setAttribute('id', 'rePlay');
+    buttonreplay.textContent = 'Play again!';
+
+    let pText = document.createElement('p');
+    pText.textContent = 'Do you want to play another round?';
+
+    let declineButton = document.createElement('button');
+    declineButton.setAttribute('class', 'decline');
+    declineButton.setAttribute('id', 'decline');
+    declineButton.textContent = 'No, thenk you!';
+
+    divReply.append(buttonreplay, declineButton);
+
+    document.querySelector('#playGround').replaceWith(divReply);
+
+    document.querySelector('#rock').disabled = true;
+    document.querySelector('#paper').disabled = true;
+    document.querySelector('#scissor').disabled = true;
+
+}
+
 
 function computerChoice(){
     return state.choices[Math.floor(Math.random() * (3 - 0) ) + 0];
