@@ -128,3 +128,10 @@ header{
 .choice h2{
     text-align: center;
 }
+
+.total{
+    height: 80vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
