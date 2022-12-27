@@ -122,7 +122,7 @@ function playPerson(choice, choiceC){
 
         //playGround.append(divResult);
 
-        if(playGround.childNodes.length > 1){
+        if(playGround.childNodes.length > 1 || playGround.childNodes.length >= 2){
             document.querySelector('#result').replaceWith(divResult);
         }
         else{
@@ -213,6 +213,7 @@ function scoreBoard(choice,choiceC){
 function endRound(){
     document.querySelector('#playGround').innerHTML = '';
     document.querySelector('#scoreBoard').innerHTML = '';
+    document.querySelector('#scoreBoard').remove();
 
     let divReply = document.createElement('div');
     divReply.setAttribute('class','choice');
@@ -234,10 +235,30 @@ function endRound(){
     divReply.append(pText, buttonreplay, declineButton);
 
     document.querySelector('#playGround').replaceWith(divReply);
+    state.playGame = false;
 
     document.querySelector('#rock').disabled = true;
     document.querySelector('#paper').disabled = true;
     document.querySelector('#scissor').disabled = true;
+    state.totalScoreP += state.playerRoundS;
+    state.totalScoreC += state.computerRoundS;
+
+
+    document.querySelector('#rePlay').addEventListener('click', () => {
+        document.querySelector('#rock').disabled = false;
+        document.querySelector('#paper').disabled = false;
+        document.querySelector('#scissor').disabled = false;
+        state.playerRoundS = 0;
+        state.computerRoundS = 0;
+
+        let divPlayground = document.createElement('div');
+        divPlayground.setAttribute('class', 'play-ground');
+        divPlayground.setAttribute('id', 'playGround');
+
+        document.querySelector('#choice').replaceWith(divPlayground);
+
+        
+    })
 
 }
 
