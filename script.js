@@ -255,9 +255,45 @@ function endRound(){
         divPlayground.setAttribute('class', 'play-ground');
         divPlayground.setAttribute('id', 'playGround');
 
+        let divResult = document.createElement('div');
+        divResult.setAttribute('id', 'result');
+
+        divPlayground.append(divResult);
+
         document.querySelector('#choice').replaceWith(divPlayground);
 
         console.log(document.querySelectorAll('#result'));
+    });
+
+
+    document.querySelector('#decline').addEventListener('click', () => {
+        document.querySelector('article').remove();
+
+        let divTotal = document.createElement('div');
+        divTotal.setAttribute('class', 'total');
+        divTotal.setAttribute('id', 'total');
+
+        let divPlayerTotalScore = document.createElement('div');
+        divPlayerTotalScore.setAttribute('class','player-total-score');
+
+        let playerh3 = document.createElement('h3');
+        playerh3.textContent = `Your total score: ${state.totalScoreP}`;
+
+        divPlayerTotalScore.append(playerh3);
+        divTotal.append(divPlayerTotalScore);
+
+
+        let divComputerTotalScore = document.createElement('div');
+        divComputerTotalScore.setAttribute('class','player-total-score');
+
+        let computerH3 = document.createElement('h3');
+        computerH3.textContent = `Your total score: ${state.totalScoreC}`;
+
+        divComputerTotalScore.append(computerH3);
+        divTotal.append(divComputerTotalScore);
+
+
+        document.querySelector('main').append(divTotal)
     })
 
 }
