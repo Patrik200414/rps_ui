@@ -122,7 +122,7 @@ function playPerson(choice, choiceC){
 
         //playGround.append(divResult);
 
-        if(playGround.childNodes.length > 1 || playGround.childNodes.length >= 2){
+        if(playGround.childNodes.length > 1){
             document.querySelector('#result').replaceWith(divResult);
         }
         else{
@@ -164,7 +164,7 @@ function playPerson(choice, choiceC){
 
 
 
-        if(document.querySelector('article').childNodes.length <= 9){
+        if(document.querySelector('article').childNodes.length < 6){
             document.querySelector('article').appendChild(divScoreBoard);
         }
         else{
@@ -257,7 +257,7 @@ function endRound(){
 
         document.querySelector('#choice').replaceWith(divPlayground);
 
-        
+        console.log(document.querySelectorAll('#result'));
     })
 
 }
