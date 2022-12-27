@@ -125,3 +125,6 @@ header{
     opacity: 0.6;
     transition: ease-in 0.3s;
 }
+.choice h2{
+    text-align: center;
+}
