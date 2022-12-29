@@ -5,7 +5,8 @@ let state = {
     playerRoundS: 0,
     computerRoundS: 0,
     clickCount: 0,
-    choices: ['rock', 'paper', 'scissor']
+    choices: ['rock', 'paper', 'scissor'],
+    isElementAppended: false
 }
 
 
@@ -121,8 +122,7 @@ function playPerson(choice, choiceC){
 
 
         //playGround.append(divResult);
-
-        if(playGround.childNodes.length > 1){
+        if(document.querySelector('#playGround').childElementCount >= 1){
             document.querySelector('#result').replaceWith(divResult);
         }
         else{
@@ -255,14 +255,11 @@ function endRound(){
         divPlayground.setAttribute('class', 'play-ground');
         divPlayground.setAttribute('id', 'playGround');
 
-        let divResult = document.createElement('div');
-        divResult.setAttribute('id', 'result');
 
-        divPlayground.append(divResult);
+        document.querySelector('#choice').remove();
+        document.querySelector('article').append(divPlayground);
 
-        document.querySelector('#choice').replaceWith(divPlayground);
 
-        console.log(document.querySelectorAll('#result'));
     });
 
 
