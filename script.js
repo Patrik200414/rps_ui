@@ -284,7 +284,7 @@ function endRound(){
         divComputerTotalScore.setAttribute('class','player-total-score');
 
         let computerH3 = document.createElement('h3');
-        computerH3.textContent = `Your total score: ${state.totalScoreC}`;
+        computerH3.textContent = `Computer's total score: ${state.totalScoreC}`;
 
         divComputerTotalScore.append(computerH3);
         divTotal.append(divComputerTotalScore);
